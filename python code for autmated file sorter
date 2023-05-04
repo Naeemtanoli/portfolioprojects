@@ -1,0 +1,22 @@
+#####there could be thousand of file in a folder and by copying and pasting it can waste lot of time so by python code we can do this task only in on or two minute###########@
+import os,sys,shutil
+path=r"D:/sort folder/"
+os.listdir(path)
+###############3/*creating a list and folder name are stored inside list to check wherther or not folder already exists or
+not if not then we will use this code to create folders so we can move file in
+the specific folder */#############
+file_folders=['jpeg file','excel file','pdf files']
+for i in file_folders:
+    print(i)
+    if not os.path.exists(path + i):
+        print(path+i)
+        os.makedirs(path+i)
+#########now we have create folder we will check wherether file is already in that folder or not if not then we will move jpeg file to jpeg folder pdf file 
+to pdf folder and so on########
+for i in os.listdir(path):
+    if ".jpeg" in i and not os.path.exists(path+'jpeg file/' +i):
+        shutil.move(path+i,path+'jpeg file/')
+    elif '.pdf' in i and not os.path.exists(path+'pdf files/'+i):
+        shutil.move(path+i,path+'pdf files/')
+    elif '.xlsx' in i and not os.path.exists(path+'excel file/'+i):
+        shutil.move(path+i,path+'excel file/')
